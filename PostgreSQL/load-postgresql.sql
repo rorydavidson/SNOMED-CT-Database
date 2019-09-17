@@ -20,7 +20,7 @@ BEGIN
         || folder || '/' || type || '/Terminology/sct2_Description_' || type || '_' || release || '.txt'' WITH (FORMAT csv, HEADER true, DELIMITER ''	'')';
 
   EXECUTE 'TRUNCATE TABLE textdefinition' || suffix;
-  EXECUTE 'COPY description' || suffix || '(id, effectivetime, active, moduleid, conceptid, languagecode, typeid, term, casesignificanceid) FROM '''
+  EXECUTE 'COPY textdefinition' || suffix || '(id, effectivetime, active, moduleid, conceptid, languagecode, typeid, term, casesignificanceid) FROM '''
         || folder || '/' || type || '/Terminology/sct2_TextDefinition_' || type || '_' || release || '.txt'' WITH (FORMAT csv, HEADER true, DELIMITER ''	'')';
   
   EXECUTE 'TRUNCATE TABLE relationship' || suffix;
