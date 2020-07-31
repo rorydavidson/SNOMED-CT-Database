@@ -15,4 +15,4 @@ LOAD csv with headers from "<<<file_protocol>>><<<output_dir>>>assoc_refset_new.
 with line
 MATCH (s:ObjectConcept { sctid: line.referencedComponentId }), (d:ObjectConcept { sctid: line.targetComponentId })
 WITH s,d,line
-CREATE UNIQUE (s)-[:HAS_ASSOCIATION {association: line.association, refsetId: line.refsetId, active: line.active, effectiveTime: line.effectiveTime, referencedComponentId: line.referencedComponentId, targetComponentId: line.targetComponentId, moduleId: line.moduleId, id: line.id } ]->(d);
+MERGE (s)-[:HAS_ASSOCIATION {association: line.association, refsetId: line.refsetId, active: line.active, effectiveTime: line.effectiveTime, referencedComponentId: line.referencedComponentId, targetComponentId: line.targetComponentId, moduleId: line.moduleId, id: line.id } ]->(d);

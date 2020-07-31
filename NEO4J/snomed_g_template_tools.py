@@ -118,7 +118,7 @@ def instantiate(arglist):
       print('MATCH (rg:RoleGroup { sctid: source_id, rolegroup: rolegroup_id })',file=fout)
       print('WITH line,rg,source_id,dest_id,rolegroup_id',file=fout)
       print('MATCH (c:ObjectConcept { sctid: dest_id })',file=fout)
-      print('CREATE UNIQUE (rg)-[:%s { id: line.id, active: line.active, sctid: source_id,' % rolename,file=fout)
+      print('MERGE (rg)-[:%s { id: line.id, active: line.active, sctid: source_id,' % rolename,file=fout)
       print('                                    typeId: line.typeId,',file=fout)
       print('                                    rolegroup: rolegroup_id, effectiveTime: line.effectiveTime,',file=fout)
       print('                                    moduleId: line.moduleId, characteristicTypeId: line.characteristicTypeId,',file=fout)
