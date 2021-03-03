@@ -1,6 +1,6 @@
 @echo off
 :: Windows Script for SnomedRfsMySql import of SNOMED CT Release File.
-:: (c) Copyright 2019 SNOMED International 
+:: (c) Copyright 2020 SNOMED International 
 :: Licenced under the terms of Apache 2.0 licence.
 ::
 :: This script does the following:
@@ -110,9 +110,9 @@ call:printf "\tMySQL Path:\t !mysqlPath!"
 call:printLog "MySQL Found !mysqlPath!"
 
 :: Get source script prefix from input or default
-set /P loadKey="Loader script identifying tag (default: create_latest): "
+set /P loadKey="Loader script identifying tag (default: create_InternationalRF2): "
 if "a%loadKey%"=="a" (
-    set "loadkey=create_latest"
+    set "loadkey=create_InternationalRF2"
 )
 echo %loadKey%
 
@@ -259,7 +259,7 @@ type %sql_file% | %perlPath% -pe %sedPattern% >"%sql_tmp%"
 
 :: Run the MySQL import process
 call:printLog "Starting the SNOMED CT MySQL import process"
-call:printf "\nStarting the SNOMED CT MySQL import process\n\nPlease enter the MySQL password for you chosen MySQL user account: %mysqluser%\n\nAfter you have done this the process will continue without further user input.\n\nDepending on your system performance this may take between 20 minutes and 90 minutesto complete"
+call:printf "\nStarting the SNOMED CT MySQL import process\n\nPlease enter the MySQL password for you chosen MySQL user account: %mysqluser%\n\nAfter you have done this the process will continue without further user input.\n\nDepending on your system performance this may take between 20 minutes and 90 minutes to complete"
 call:printLog "!mysqlPath! --default-character-set=utf8mb4 --local-infile=1 --comments --password --user !mysqluser!   <!sql_tmp!"
 
 "!mysqlPath!" --default-character-set=utf8mb4 --local-infile=1 --comments --password --user !mysqluser!   <"!sql_tmp!"

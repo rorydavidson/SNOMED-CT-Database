@@ -124,6 +124,7 @@ def instantiate(arglist):
       print('                                    moduleId: line.moduleId, characteristicTypeId: line.characteristicTypeId,',file=fout)
       print('                                    modifierId: line.modifierId,',file=fout)
       print('                                    history: line.history }]->(c);',file=fout)
+
   # close CSV, wrap up
   print('// Finito',file=fout)
   fout.close()
