@@ -1,5 +1,7 @@
 # SNOMED CT Database Scripts
 
+**This is no longer maintained and has been moved to the official SNOMED International repo - https://github.com/IHTSDO/snomed-database-loader**
+
 The scripts in this repository can be used to create and populate a MYSQL, PostgreSQL, MSSQL or NEO4J database with a SNOMED CT terminology release distributed in the **RF2 distribution format**.
 
 Please see the relevant sub-directories for each of the different database load scripts:
